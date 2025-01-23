@@ -21,6 +21,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -156,106 +160,74 @@
       </div>
     </section>
 
-    <section id="services" class="services">
-      <div class="services-container">
-        <div class="services-header">
-          <h2 class="section-title">Nasze <span>Usługi</span></h2>
-          <p class="section-subtitle">
-            Oferujemy szeroki zakres usług związanych z rzeczoznawstwem
-            samochodowym, zapewniając dokładność i rzetelność.
+    <section class="testimonials" id="testimonials">
+      <h2>Opinie</h2>
+      <p class="testimonials-description">Co mówią o mnie moi klienci?</p>
+
+      <div class="testimonial-slider">
+        <div class="testimonial-item">
+          <div class="client-photo">
+            <img src="./PM.webp" alt="Klient 1" />
+          </div>
+          <p class="testimonial-text">
+            "Profesjonalna obsługa i szybka realizacja. Gorąco polecam!"
           </p>
+          <h4>Jan Kowalski</h4>
+          <p class="client-info">Klient biznesowy</p>
+          <div class="rating">★★★★★</div>
         </div>
-
-        <div class="services-list">
-          <div class="service-card">
-            <i class="fas fa-car-crash"></i>
-            <h3>Wycena Szkód</h3>
-            <p>
-              Dokładna analiza uszkodzeń i przygotowanie profesjonalnej wyceny.
-            </p>
+        <div class="testimonial-item">
+          <div class="client-photo">
+            <img src="./ceo.webp" alt="Klient 2" />
           </div>
-
-          <div class="service-card">
-            <i class="fas fa-file-alt"></i>
-            <h3>Ekspertyzy Pojazdów</h3>
-            <p>
-              Szczegółowe raporty techniczne dla pojazdów nowych i używanych.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <i class="fas fa-balance-scale"></i>
-            <h3>Opinie Prawne</h3>
-            <p>
-              Profesjonalne doradztwo w zakresie sporów i postępowań sądowych.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <i class="fas fa-cogs"></i>
-            <h3>Badania Techniczne</h3>
-            <p>Kompleksowe przeglądy techniczne i diagnostyka pojazdów.</p>
-          </div>
+          <p class="testimonial-text">
+            "Świetna jakość usług, dokładna ekspertyza i fachowe podejście."
+          </p>
+          <h4>Anna Nowak</h4>
+          <p class="client-info">Klient indywidualny</p>
+          <div class="rating">★★★★☆</div>
         </div>
-
-        <div class="services-cta">
-          <a href="#contact" class="btn services-btn">Skontaktuj się z nami</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-      <div class="testimonials-header">
-        <h2 class="section-title">Co Mówią <span>Nasi Klienci</span></h2>
-        <p class="section-subtitle">
-          Twoje zadowolenie jest dla nas najważniejsze. Sprawdź, co mówią nasi
-          klienci.
-        </p>
-      </div>
-
-      <div class="testimonials-wrapper">
-        <div class="testimonials-slider">
-          <div class="testimonial active">
-            <p class="testimonial-text">
-              "Usługi świadczone na najwyższym poziomie. Gorąco polecam
-              każdemu!"
-            </p>
-            <div class="testimonial-author">
-              <img src="client1.jpg" alt="Jan Kowalski" />
-              <h4>Jan Kowalski</h4>
-              <span>Właściciel firmy transportowej</span>
-            </div>
+        <div class="testimonial-item">
+          <div class="client-photo">
+            <img src="./freelancerka.webp" alt="Klient 3" />
           </div>
-
-          <div class="testimonial">
-            <p class="testimonial-text">
-              "Świetna jakość obsługi, profesjonalne podejście i szybka
-              realizacja."
-            </p>
-            <div class="testimonial-author">
-              <img src="client2.jpg" alt="Anna Nowak" />
-              <h4>Anna Nowak</h4>
-              <span>Klient indywidualny</span>
-            </div>
-          </div>
-
-          <div class="testimonial">
-            <p class="testimonial-text">
-              "Ekspertyza wykonana bardzo dokładnie, a obsługa na najwyższym
-              poziomie."
-            </p>
-            <div class="testimonial-author">
-              <img src="client3.jpg" alt="Michał Wiśniewski" />
-              <h4>Michał Wiśniewski</h4>
-              <span>Mechanik samochodowy</span>
-            </div>
-          </div>
+          <p class="testimonial-text">
+            "Usługi na najwyższym poziomie! Rzetelność i pełne zaangażowanie."
+          </p>
+          <h4>Michał Wiśniewski</h4>
+          <p class="client-info">Mechanik samochodowy</p>
+          <div class="rating">★★★★★</div>
         </div>
       </div>
 
-      <div class="testimonials-controls">
-        <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
-        <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+      <div class="slider-controls">
+        <button class="prev-slide">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="dots-container"></div>
+        <button class="next-slide">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
     </section>
 
@@ -363,10 +335,12 @@
             ></a>
           </div>
         </div>
-      </div>
 
-      <div class="footer-bottom">
-        <p>&copy; 2024 Rzeczoznawca Samochodowy. Wszelkie prawa zastrzeżone.</p>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Rzeczoznawca Samochodowy. Wszelkie prawa zastrzeżone.
+          </p>
+        </div>
       </div>
     </footer>
 

@@ -103,36 +103,70 @@ if (heroStatsSection) {
   });
 }
 
-const testimonials = document.querySelectorAll(".testimonial");
-const prevBtn = document.querySelector(".prev-btn");
-const nextBtn = document.querySelector(".next-btn");
-let currentIndex = 0;
+const slider = document.querySelector(".testimonial-slider");
+const items = document.querySelectorAll(".testimonial-item");
+const prevBtn = document.querySelector(".prev-slide");
+const nextBtn = document.querySelector(".next-slide");
+const dotsContainer = document.querySelector(".dots-container");
 
-// Funkcja do pokazywania opinii
-function showTestimonial(index) {
-  testimonials.forEach((testimonial, i) => {
-    testimonial.classList.remove("active");
+let currentIndex = 0; // Index aktywnej opinii
+
+// Funkcja inicjalizacji slidera
+function initSlider() {
+  // Wyświetl pierwszą opinię
+  updateSlider();
+
+  // Dynamiczne generowanie kropek nawigacyjnych
+  items.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      currentIndex = i;
+      updateSlider();
+    });
+    dotsContainer.appendChild(dot);
   });
-
-  testimonials[index].classList.add("active");
 }
 
-// Obsługa przycisków nawigacyjnych
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % testimonials.length;
-  showTestimonial(currentIndex);
-});
+// Funkcja aktualizująca slider
+function updateSlider() {
+  items.forEach((item, i) => {
+    item.style.display = i === currentIndex ? "block" : "none";
+  });
 
+  // Aktualizacja kropek
+  const dots = document.querySelectorAll(".dot");
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentIndex);
+  });
+}
+
+// Obsługa przycisków "Poprzedni" i "Następny"
 prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-  showTestimonial(currentIndex);
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  updateSlider();
 });
 
-// Automatyczne przewijanie co 6 sekund
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % testimonials.length;
-  showTestimonial(currentIndex);
-}, 6000);
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % items.length;
+  updateSlider();
+});
 
-// Ustawienie pierwszej opinii jako aktywnej
-showTestimonial(currentIndex);
+// Automatyczne przesuwanie slidera
+let autoSlide = setInterval(() => {
+  currentIndex = (currentIndex + 1) % items.length;
+  updateSlider();
+}, 5000);
+
+// Pauza na hover
+slider.addEventListener("mouseover", () => clearInterval(autoSlide));
+slider.addEventListener("mouseout", () => {
+  autoSlide = setInterval(() => {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateSlider();
+  }, 5000);
+});
+
+// Inicjalizacja slidera na starcie
+initSlider();
