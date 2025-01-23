@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Profesjonalne ekspertyzy samochodowe" />
+    <meta
+      name="keywords"
+      content="rzeczoznawca samochodowy, ekspertyzy, wycena samochodu"
+    />
+    <meta property="og:title" content="Rzeczoznawca Samochodowy" />
+    <meta
+      property="og:description"
+      content="Profesjonalne ekspertyzy samochodowe."
+    />
+    <meta property="og:image" content="./logo.webp" />
+    <title>Rzeczoznawca Samochodowy</title>
+    <link rel="stylesheet" href="design.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="#" class="logo">Rzeczoznawca<span>Auto</span></a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#home">Strona Główna</a></li>
+            <li><a href="#services">Usługi</a></li>
+            <li><a href="#about">O nas</a></li>
+            <li><a href="#reviews">Opinie</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-buttons">
+          <a href="tel:+48123456789" class="btn call-btn">Zadzwoń</a>
+          <a href="#contact" class="btn appointment-btn">Umów Wizytę</a>
+        </div>
+
+        <div class="menu-toggle" aria-label="Otwórz menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Profesjonalne <span class="dynamic-text">Ekspertyzy</span> dla
+            Twojego auta
+          </h1>
+          <p class="hero-subtitle">
+            Eksperci w dziedzinie rzeczoznawstwa samochodowego – dostępni 24/7.
+          </p>
+          <div class="hero-buttons">
+            <a href="tel:+48123456789" class="btn call-btn">Zadzwoń Teraz</a>
+            <a href="#contact" class="btn appointment-btn">Umów Wizytę</a>
+          </div>
+
+          <form class="hero-form">
+            <input type="text" placeholder="Twoje imię" required />
+            <input type="email" placeholder="Twój email" required />
+            <button type="submit" class="btn form-btn">Uzyskaj Wyceny</button>
+          </form>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <h3><span class="counter" data-count="5000">0</span>+</h3>
+            <p>Zadowolonych Klientów</p>
+          </div>
+          <div class="stat">
+            <h3><span class="counter" data-count="300">0</span>+</h3>
+            <p>Zrealizowanych Ekspertyz</p>
+          </div>
+        </div>
+      </div>
+      <a href="#services" class="scroll-down">▼</a>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-container">
+        <!-- Nagłówek sekcji -->
+        <div class="about-header">
+          <h2 class="section-title">Poznaj Naszą <span>Firmę</span></h2>
+          <p class="section-subtitle">
+            Zapewniamy profesjonalne ekspertyzy i wyceny pojazdów oparte na
+            latach doświadczenia i nowoczesnych technologiach.
+          </p>
+        </div>
+
+        <!-- Część główna sekcji (obraz + tekst) -->
+        <div class="about-content">
+          <div class="about-image">
+            <img src="./logo.webp" alt="O nas" />
+          </div>
+
+          <div class="about-text">
+            <h3 class="about-heading">Kim Jesteśmy?</h3>
+            <p>
+              Jesteśmy zespołem ekspertów, którzy pomagają w podejmowaniu
+              świadomych decyzji dotyczących Twojego pojazdu.
+            </p>
+            <h3 class="about-heading">Co Oferujemy?</h3>
+            <ul class="about-list">
+              <li>
+                <i class="fas fa-check-circle"></i> Precyzyjne ekspertyzy
+                pojazdów
+              </li>
+              <li><i class="fas fa-check-circle"></i> Rzetelne doradztwo</li>
+              <li>
+                <i class="fas fa-check-circle"></i> Profesjonalne podejście
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Indywidualne podejście do
+                każdego klienta
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Karty wartości firmy -->
+        <div class="about-values">
+          <div class="value-card">
+            <i class="fas fa-shield-alt"></i>
+            <h4>Zaufanie</h4>
+            <p>
+              Transparentność i pełna uczciwość na każdym etapie współpracy.
+            </p>
+          </div>
+          <div class="value-card">
+            <i class="fas fa-lightbulb"></i>
+            <h4>Innowacyjność</h4>
+            <p>Wykorzystujemy nowoczesne technologie w każdej ekspertyzie.</p>
+          </div>
+          <div class="value-card">
+            <i class="fas fa-handshake"></i>
+            <h4>Profesjonalizm</h4>
+            <p>Gwarantujemy najwyższe standardy w świadczonych usługach.</p>
+          </div>
+        </div>
+
+        <!-- Call to action -->
+        <div class="about-cta">
+          <a href="#contact" class="btn about-btn">Dowiedz się więcej</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="services-container">
+        <div class="services-header">
+          <h2 class="section-title">Nasze <span>Usługi</span></h2>
+          <p class="section-subtitle">
+            Oferujemy szeroki zakres usług związanych z rzeczoznawstwem
+            samochodowym, zapewniając dokładność i rzetelność.
+          </p>
+        </div>
+
+        <div class="services-list">
+          <div class="service-card">
+            <i class="fas fa-car-crash"></i>
+            <h3>Wycena Szkód</h3>
+            <p>
+              Dokładna analiza uszkodzeń i przygotowanie profesjonalnej wyceny.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <i class="fas fa-file-alt"></i>
+            <h3>Ekspertyzy Pojazdów</h3>
+            <p>
+              Szczegółowe raporty techniczne dla pojazdów nowych i używanych.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <i class="fas fa-balance-scale"></i>
+            <h3>Opinie Prawne</h3>
+            <p>
+              Profesjonalne doradztwo w zakresie sporów i postępowań sądowych.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <i class="fas fa-cogs"></i>
+            <h3>Badania Techniczne</h3>
+            <p>Kompleksowe przeglądy techniczne i diagnostyka pojazdów.</p>
+          </div>
+        </div>
+
+        <div class="services-cta">
+          <a href="#contact" class="btn services-btn">Skontaktuj się z nami</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="testimonials-header">
+        <h2 class="section-title">Co Mówią <span>Nasi Klienci</span></h2>
+        <p class="section-subtitle">
+          Twoje zadowolenie jest dla nas najważniejsze. Sprawdź, co mówią nasi
+          klienci.
+        </p>
+      </div>
+
+      <div class="testimonials-wrapper">
+        <div class="testimonials-slider">
+          <div class="testimonial active">
+            <p class="testimonial-text">
+              "Usługi świadczone na najwyższym poziomie. Gorąco polecam
+              każdemu!"
+            </p>
+            <div class="testimonial-author">
+              <img src="client1.jpg" alt="Jan Kowalski" />
+              <h4>Jan Kowalski</h4>
+              <span>Właściciel firmy transportowej</span>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <p class="testimonial-text">
+              "Świetna jakość obsługi, profesjonalne podejście i szybka
+              realizacja."
+            </p>
+            <div class="testimonial-author">
+              <img src="client2.jpg" alt="Anna Nowak" />
+              <h4>Anna Nowak</h4>
+              <span>Klient indywidualny</span>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <p class="testimonial-text">
+              "Ekspertyza wykonana bardzo dokładnie, a obsługa na najwyższym
+              poziomie."
+            </p>
+            <div class="testimonial-author">
+              <img src="client3.jpg" alt="Michał Wiśniewski" />
+              <h4>Michał Wiśniewski</h4>
+              <span>Mechanik samochodowy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials-controls">
+        <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="contact-header">
+        <h2 class="section-title">Skontaktuj się <span>Z NAMI</span></h2>
+        <p class="section-subtitle">
+          Masz pytania? Skontaktuj się z nami za pomocą formularza lub odwiedź
+          nas osobiście.
+        </p>
+      </div>
+
+      <div class="contact-content">
+        <!-- Mapa Google -->
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?key=TWOJ_KLUCZ_API&q=Warsaw,Poland"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <!-- Formularz kontaktowy -->
+        <div class="contact-form">
+          <h3 class="form-title">Wyślij nam wiadomość</h3>
+          <form action="submit_form.php" method="POST">
+            <div class="form-group">
+              <input
+                type="text"
+                name="name"
+                placeholder="Twoje imię"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Twój e-mail"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                name="message"
+                placeholder="Twoja wiadomość"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn contact-btn">
+              Wyślij wiadomość
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3>O Nas</h3>
+          <p>
+            Profesjonalne ekspertyzy i wyceny pojazdów oparte na latach
+            doświadczenia i nowoczesnych technologiach.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Menu</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">O nas</a></li>
+            <li><a href="#services">Usługi</a></li>
+            <li><a href="#testimonials">Opinie</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Kontakt</h3>
+          <ul>
+            <li>
+              <i class="fas fa-map-marker-alt"></i> Warszawa, ul. Przykładowa 12
+            </li>
+            <li><i class="fas fa-phone-alt"></i> +48 123 456 789</li>
+            <li><i class="fas fa-envelope"></i> kontakt@firma.pl</li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h3>Śledź nas</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Rzeczoznawca Samochodowy. Wszelkie prawa zastrzeżone.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
