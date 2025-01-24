@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Dynamiczny tekst w sekcji hero
-const dynamicText = document.querySelector(".dynamic-text");
+const dynamicText = document.querySelector(".text-dangerh");
 const words = ["Ekspertyzy", "Wyceny", "Doradztwo"];
 let index = 0;
 
@@ -56,7 +56,7 @@ if (dynamicText) {
     dynamicText.textContent = words[index];
     index = (index + 1) % words.length;
   }
-  setInterval(changeText, 4000);
+  setInterval(changeText, 2000);
 }
 
 // Animacja liczników

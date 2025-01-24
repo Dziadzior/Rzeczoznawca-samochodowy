@@ -127,10 +127,11 @@ body {
     url("hero-car.jpg") no-repeat center center/cover;
   color: var(--text-color);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 50px 20px;
+  padding: 50px 0;
   overflow: hidden;
 }
 
@@ -164,12 +165,27 @@ body {
   white-space: nowrap;
 }
 
-.hero-title span {
-  color: var(--primary-color);
+.hero-title .text-danger {
+  color: red;
+}
+
+.hero-title .text-dangerh {
+  color: red;
+}
+
+.btn-danger {
+  background: red;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.btn-danger:hover {
+  background: darkred;
 }
 
 .hero-subtitle {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 30px;
   color: var(--secondary-color);
@@ -201,6 +217,8 @@ body {
 
 /* Formularz */
 .hero-form {
+  max-width: 500px;
+  text-align: center;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -227,6 +245,15 @@ body {
   background: darkred;
 }
 
+.form-control {
+  background: #111;
+  border: none;
+  padding: 15px;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 5px;
+}
+
 /* Statystyki */
 .hero-stats {
   display: flex;
@@ -241,13 +268,14 @@ body {
 
 .stat h3 {
   font-size: 3rem;
+  font-weight: bold;
   color: var(--primary-color);
 }
 
-.stat p {
+.hero-stats p {
   font-size: 1.2rem;
+  color: #aaa;
 }
-
 .counter {
   font-size: 3rem;
   font-weight: bold;
@@ -304,6 +332,7 @@ body {
 /* Efekt przewijania */
 .scroll-down {
   position: absolute;
+  margin-top: 20px;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
@@ -492,24 +521,6 @@ body {
   background: #000;
   color: #fff;
   padding: 80px 0;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.section-title .text-highlight {
-  color: red;
-}
-
-.section-subtitle {
-  font-size: 1.2rem;
-  color: #aaa;
-  max-width: 700px;
-  margin: 0 auto;
 }
 
 .service-card {
