@@ -26,31 +26,27 @@
     />
   </head>
   <body>
-    <header class="header bg-dark text-white py-3 fixed-top shadow">
-      <div class="container d-flex justify-content-between align-items-center">
-        <div class="logo d-flex align-items-center fw-bold">
+    <header id="main-header" class="header bg-dark text-white py-3 shadow">
+      <div
+        class="container d-flex flex-wrap justify-content-between align-items-center"
+      >
+        <div class="logo d-flex align-items-center">
           <img src="./logo.webp" alt="Logo" class="logo-img me-2" />
-          Rzeczoznawca<span class="text-danger">Auto</span>
+          Rzeczoznawca<span class="text-danger fw-bold">Auto</span>
         </div>
-
-        <div class="header-contact d-flex flex-column align-items-end text-end">
-          <p class="contact-item mb-1">
-            <i class="fas fa-user text-danger me-2"></i
-            ><span class="fw-bold">Marcin Dudek</span>
-          </p>
-          <p class="contact-item mb-1">
-            <i class="fas fa-phone-alt text-danger me-2"></i
-            ><a href="tel:+48123456789" class="text-white fw-bold"
-              >+48 501 237 006</a
-            >
-          </p>
-          <p class="contact-item mb-0">
-            <i class="fas fa-envelope text-danger me-2"></i
-            ><a href="mailto:kontakt@firma.pl" class="text-white fw-bold"
-              >Dudekmarcin1312@gmail.com</a
-            >
-          </p>
+        <div class="header-contact d-none d-md-block text-end">
+          <p><i class="fas fa-user text-danger"></i> Jan Kowalski</p>
+          <p><i class="fas fa-phone-alt text-danger"></i> +48 123 456 789</p>
+          <p><i class="fas fa-envelope text-danger"></i> kontakt@firma.pl</p>
         </div>
+        <button
+          class="navbar-toggler d-md-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mobileNav"
+        >
+          <i class="fas fa-bars fa-2x text-white"></i>
+        </button>
       </div>
     </header>
 
@@ -100,11 +96,11 @@
           class="hero-stats d-flex flex-column flex-md-row justify-content-center gap-5 mt-5 text-center"
         >
           <div>
-            <h3 class="counter text-danger fw-bold" data-count="5000+">0</h3>
+            <h3 class="counter text-danger fw-bold" data-count="5000">0</h3>
             <p>Zadowolonych Klientów</p>
           </div>
           <div>
-            <h3 class="counter text-danger fw-bold" data-count="300+">0</h3>
+            <h3 class="counter text-danger fw-bold" data-count="300">0</h3>
             <p>Zrealizowanych Ekspertyz</p>
           </div>
         </div>

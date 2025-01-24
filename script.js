@@ -1,18 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const mobileNav = document.querySelector("#mobileNav");
-  const navbarToggler = document.querySelector(".navbar-toggler");
-
-  navbarToggler.addEventListener("click", () => {
-    mobileNav.classList.toggle("show");
-  });
+  let lastScrollTop = 0;
+  const header = document.getElementById("main-header");
 
   window.addEventListener("scroll", () => {
-    const header = document.querySelector(".header");
-    if (window.scrollY > 50) {
-      header.classList.add("bg-opacity");
+    let currentScroll =
+      window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop && currentScroll > 50) {
+      // Przewijanie w dół, ukryj nagłówek
+      header.classList.add("hidden");
     } else {
-      header.classList.remove("bg-opacity");
+      // Przewijanie w górę, pokaż nagłówek
+      header.classList.remove("hidden");
     }
+    lastScrollTop = currentScroll;
   });
 });
 
