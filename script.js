@@ -1,26 +1,20 @@
-// Zmiana wyglądu nagłówka przy przewijaniu
-const header = document.querySelector(".header");
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileNav = document.querySelector("#mobileNav");
+  const navbarToggler = document.querySelector(".navbar-toggler");
 
-window.addEventListener("scroll", function () {
-  if (header) {
-    if (window.scrollY > 50) {
-      header.classList.add("scroll");
-    } else {
-      header.classList.remove("scroll");
-    }
-  }
-});
-
-// Obsługa menu hamburgerowego (poza eventem scroll, by uniknąć ponownej deklaracji)
-const menuToggle = document.querySelector(".menu-toggle");
-const nav = document.querySelector(".nav");
-
-if (menuToggle && nav) {
-  menuToggle.addEventListener("click", function () {
-    nav.classList.toggle("active");
-    this.classList.toggle("open");
+  navbarToggler.addEventListener("click", () => {
+    mobileNav.classList.toggle("show");
   });
-}
+
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector(".header");
+    if (window.scrollY > 50) {
+      header.classList.add("bg-opacity");
+    } else {
+      header.classList.remove("bg-opacity");
+    }
+  });
+});
 
 // Dodanie animacji do przycisków
 const buttons = document.querySelectorAll(".btn");
@@ -35,6 +29,22 @@ if (buttons.length > 0) {
     });
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const serviceCards = document.querySelectorAll(".service-card");
+
+  serviceCards.forEach((card) => {
+    card.addEventListener("mouseover", () => {
+      card.style.transform = "translateY(-10px)";
+      card.style.boxShadow = "0 0 40px rgba(255, 0, 0, 0.5)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "translateY(0)";
+      card.style.boxShadow = "0 0 30px rgba(255, 0, 0, 0.1)";
+    });
+  });
+});
 
 // Dynamiczny tekst w sekcji hero
 const dynamicText = document.querySelector(".dynamic-text");
@@ -102,71 +112,3 @@ if (heroStatsSection) {
     }
   });
 }
-
-const slider = document.querySelector(".testimonial-slider");
-const items = document.querySelectorAll(".testimonial-item");
-const prevBtn = document.querySelector(".prev-slide");
-const nextBtn = document.querySelector(".next-slide");
-const dotsContainer = document.querySelector(".dots-container");
-
-let currentIndex = 0; // Index aktywnej opinii
-
-// Funkcja inicjalizacji slidera
-function initSlider() {
-  // Wyświetl pierwszą opinię
-  updateSlider();
-
-  // Dynamiczne generowanie kropek nawigacyjnych
-  items.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    if (i === 0) dot.classList.add("active");
-    dot.addEventListener("click", () => {
-      currentIndex = i;
-      updateSlider();
-    });
-    dotsContainer.appendChild(dot);
-  });
-}
-
-// Funkcja aktualizująca slider
-function updateSlider() {
-  items.forEach((item, i) => {
-    item.style.display = i === currentIndex ? "block" : "none";
-  });
-
-  // Aktualizacja kropek
-  const dots = document.querySelectorAll(".dot");
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === currentIndex);
-  });
-}
-
-// Obsługa przycisków "Poprzedni" i "Następny"
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + items.length) % items.length;
-  updateSlider();
-});
-
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % items.length;
-  updateSlider();
-});
-
-// Automatyczne przesuwanie slidera
-let autoSlide = setInterval(() => {
-  currentIndex = (currentIndex + 1) % items.length;
-  updateSlider();
-}, 5000);
-
-// Pauza na hover
-slider.addEventListener("mouseover", () => clearInterval(autoSlide));
-slider.addEventListener("mouseout", () => {
-  autoSlide = setInterval(() => {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateSlider();
-  }, 5000);
-});
-
-// Inicjalizacja slidera na starcie
-initSlider();
