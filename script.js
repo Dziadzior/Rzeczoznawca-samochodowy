@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  AOS.init({
+    duration: 1000, // Czas trwania animacji w ms
+    once: true, // Animacja tylko raz
+  });
+
   let lastScrollTop = 0;
   const header = document.getElementById("main-header");
 

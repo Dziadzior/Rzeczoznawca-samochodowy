@@ -15,14 +15,23 @@
     />
     <meta property="og:image" content="./logo.webp" />
     <title>Rzeczoznawca Samochodowy</title>
+    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     />
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="design.css" />
+    <!-- FontAwesome -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
   </head>
   <body>
@@ -181,7 +190,7 @@
 
     <section id="services" class="services py-5">
       <div class="container text-center">
-        <h2 class="section-title mb-4">
+        <h2 class="section-title mb-4" data-aos="fade-up">
           Nasze <span class="text-highlight">Usługi</span>
         </h2>
         <p class="section-subtitle mb-5">
@@ -190,7 +199,11 @@
         </p>
 
         <div class="row g-4">
-          <div class="col-lg-4 col-md-6">
+          <div
+            class="col-lg-4 col-md-6 col-12"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div class="service-card p-4">
               <i
                 class="fas fa-car-crash fa-4x service-icon mb-3 text-highlight"
@@ -202,7 +215,11 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
+          <div
+            class="col-lg-4 col-md-6 col-12"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div class="service-card p-4">
               <i
                 class="fas fa-file-invoice fa-4x service-icon mb-3 text-highlight"
@@ -215,7 +232,11 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
+          <div
+            class="col-lg-4 col-md-6 col-12"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div class="service-card p-4">
               <i
                 class="fas fa-user-shield fa-4x service-icon mb-3 text-highlight"
@@ -320,7 +341,16 @@
       </div>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FontAwesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Custom JS -->
     <script src="script.js"></script>
   </body>
 </html>
