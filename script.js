@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   AOS.init({
-    duration: 1000, // Czas trwania animacji w ms
-    once: true, // Animacja tylko raz
+    duration: 1000,
+    once: true,
   });
 
   let lastScrollTop = 0;
@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
       window.pageYOffset || document.documentElement.scrollTop;
 
     if (currentScroll > lastScrollTop && currentScroll > 50) {
-      // Przewijanie w dół, ukryj nagłówek
+      // Przewijanie w dół - ukrycie nagłówka
       header.classList.add("hidden");
     } else {
-      // Przewijanie w górę, pokaż nagłówek
+      // Przewijanie w górę - pokazanie nagłówka
       header.classList.remove("hidden");
     }
     lastScrollTop = currentScroll;
