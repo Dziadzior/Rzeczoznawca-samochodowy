@@ -1,5 +1,6 @@
 :root {
   --primary-color: red;
+  --lighter-red: rgb(255, 77, 77);
   --secondary-color: #333;
   --background-color: #f9f9f9;
   --text-color: #fff;
@@ -435,7 +436,7 @@ body {
   color: #ccc;
 }
 
-.about-list i {
+.about-list svg {
   color: var(--primary-color);
   font-size: 1.5rem;
   margin-right: 15px;
@@ -462,9 +463,10 @@ body {
 .value-card:hover {
   transform: translateY(-10px);
   box-shadow: 0px 15px 25px rgba(255, 0, 0, 0.3);
+  color: var(--lighter-red);
 }
 
-.value-card i {
+.value-card svg {
   font-size: 3rem;
   color: var(--primary-color);
   margin-bottom: 15px;
