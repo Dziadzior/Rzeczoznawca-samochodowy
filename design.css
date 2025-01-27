@@ -797,11 +797,83 @@ body {
   color: #bbb;
 }
 
+/* Nawigacja - hamburger menu */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
+  .header-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
   }
 
+  .header-nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+}
+
+/* Hero section */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  white-space: normal;
+  padding: 0 20px;
+  line-height: 1.2;
+}
+
+/* Sekcja usług - responsywny układ */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 50px 20px;
+}
+
+/* Formularz kontaktowy */
+@media (max-width: 576px) {
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-btn {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+}
+
+/* Stopka */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Ogólne breakpoints */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
   .hero-buttons {
     flex-direction: column;
   }
@@ -810,17 +882,15 @@ body {
     width: 100%;
   }
 
-  .about .row {
-    flex-direction: column;
-  }
-
   .service-card {
     padding: 20px;
   }
 }
 
-@media (max-width: 576px) {
-  .hero-title {
-    font-size: 2rem;
+/* Obsługa ekranów o wysokiej gęstości pikseli */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi) {
+  .hero {
+    background-image: url("./logo.webp");
   }
 }
