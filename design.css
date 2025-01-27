@@ -114,7 +114,7 @@ body {
       var(--background-dark),
       var(--primary-color)
     ),
-    url("hero-car.jpg") no-repeat center center/cover;
+    url("./logo.webp") no-repeat center center/cover;
   color: var(--text-color);
   display: flex;
   flex-direction: column;
@@ -142,21 +142,17 @@ body {
 
 /* Hero Title */
 .hero-title {
-  font-size: 1rem; /* Zmniejszenie rozmiaru czcionki */
+  font-size: 2.5rem; /* Zmniejszenie rozmiaru czcionki */
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-color);
   text-align: center;
-  letter-spacing: 1.7px;
+  letter-spacing: 1.8px;
   line-height: 1.8;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
   opacity: 0;
   animation: fadeIn 1.5s ease-in-out forwards;
   white-space: nowrap;
-}
-
-.hero-title .text-danger {
-  color: red;
 }
 
 .hero-title .text-dangerh {
@@ -213,6 +209,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.hero-form input:hover,
+:focus {
+  color: var(--lighter-red);
+  border: 1px solid var(--lighter-red);
 }
 
 .hero-form input,
@@ -823,22 +825,6 @@ body {
     top: 15px;
     right: 20px;
   }
-}
-
-/* Hero section */
-.hero-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  white-space: normal;
-  padding: 0 20px;
-  line-height: 1.2;
-}
-
-/* Sekcja usług - responsywny układ */
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  padding: 50px 20px;
 }
 
 /* Formularz kontaktowy */
