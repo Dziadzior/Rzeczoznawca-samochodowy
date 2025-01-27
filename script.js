@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Inicjalizacja AOS
   AOS.init({
     duration: 1000,
     once: true,
@@ -6,21 +7,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let lastScrollTop = 0;
   const header = document.getElementById("main-header");
+  const headerContactMobile = document.querySelector(".header-contact-mobile");
+  const menuToggle = document.getElementById("menu-toggle");
+  const closeContact = document.getElementById("close-contact");
 
+  if (menuToggle && closeContact && headerContactMobile) {
+    // Kliknięcie przycisku Kontakt
+    menuToggle.addEventListener("click", () => {
+      if (headerContactMobile.classList.contains("visible")) {
+        // Zamknij header-contact-mobile
+        headerContactMobile.classList.remove("visible");
+        headerContactMobile.classList.add("hidden");
+        menuToggle.textContent = "Kontakt";
+      } else {
+        // Otwórz header-contact-mobile
+        headerContactMobile.classList.add("visible");
+        headerContactMobile.classList.remove("hidden");
+        menuToggle.textContent = "X";
+      }
+    });
+
+    // Kliknięcie przycisku X
+    closeContact.addEventListener("click", () => {
+      headerContactMobile.classList.remove("visible");
+      headerContactMobile.classList.add("hidden");
+      menuToggle.textContent = "Kontakt";
+    });
+  }
+
+  // Obsługa przewijania
   window.addEventListener("scroll", () => {
-    let currentScroll =
+    const currentScroll =
       window.pageYOffset || document.documentElement.scrollTop;
 
     if (currentScroll > lastScrollTop && currentScroll > 50) {
-      // Przewijanie w dół - ukrycie nagłówka
+      // Przewijanie w dół
       header.classList.add("hidden");
+
+      if (headerContactMobile.classList.contains("visible")) {
+        headerContactMobile.classList.add("scroll-hidden");
+        headerContactMobile.classList.remove("visible");
+      }
     } else {
-      // Przewijanie w górę - pokazanie nagłówka
+      // Przewijanie w górę
       header.classList.remove("hidden");
+
+      if (headerContactMobile.classList.contains("scroll-hidden")) {
+        headerContactMobile.classList.add("visible");
+        headerContactMobile.classList.remove("scroll-hidden");
+      }
     }
+
     lastScrollTop = currentScroll;
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {});
 
 // Dodanie animacji do przycisków
 const buttons = document.querySelectorAll(".btn");

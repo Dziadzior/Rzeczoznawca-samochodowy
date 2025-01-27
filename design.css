@@ -41,14 +41,35 @@ body {
   left: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.95);
-  transition: transform 0.4s ease-in-out;
   z-index: 1000;
+  padding: 15px 5%;
 }
 
-/* Klasa do ukrywania nagłówka przy przewijaniu w dół */
-.header.hidden {
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hidden {
   transform: translateY(-100%);
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visible {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+  visibility: visible;
+  opacity: 1;
+}
+
+.scroll-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .logo-img {
@@ -77,37 +98,46 @@ body {
 .header-contact {
   font-size: 1rem;
   color: #ccc;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 }
 
-.header-contact a {
-  text-decoration: none;
-  color: #fff;
-  transition: color 0.3s ease-in-out;
+.header-contact p {
+  margin-bottom: 5px;
 }
 
-.header-contact a:hover {
-  color: red;
+/* Przycisk kontakt na telefonach */
+#menu-toggle {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.header-contact i {
-  font-size: 1.2rem;
-  color: red;
-  margin-right: 8px;
+/* Sekcja kontaktowa na telefonach */
+.header-contact-mobile {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
 }
 
-.contact-item {
-  display: flex;
-  align-items: center;
-  font-weight: 600;
+/* Widoczność sekcji kontaktowej */
+.header-contact-mobile.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%);
+  z-index: 99;
 }
-
-.contact-item i {
-  font-size: 1.4rem;
-}
-
 /* Sekcja hero */
 .hero {
   position: relative;
@@ -789,28 +819,43 @@ body {
   color: #bbb;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
-  .header {
-    padding: 10px 5%;
+  .header-contact-mobile {
+    top: 24%;
+  }
+}
+
+/* Ukrycie sekcji kontaktowej na telefonach */
+@media (max-width: 576px) {
+  .header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .hero {
-    height: auto;
+  .logo {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .hero-title {
-    font-size: 2rem;
-    white-space: normal;
+  .logo-img {
+    width: 50px;
+    margin-bottom: 8px;
   }
 
-  .hero-form {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 5%;
+  /* Przycisk kontakt na telefonach */
+  #menu-toggle {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
   }
 
-  .footer {
-    padding: 30px 5%;
+  .header-contact-mobile {
+    top: 30%;
   }
 }

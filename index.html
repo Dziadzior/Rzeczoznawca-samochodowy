@@ -35,14 +35,22 @@
   </head>
   <body>
     <header class="header bg-dark text-white py-3 shadow" id="main-header">
-      <div
-        class="container d-flex flex-wrap justify-content-between align-items-center"
-      >
-        <div class="logo d-flex align-items-center">
-          <img src="./logo.webp" alt="Logo" class="logo-img me-2" />
-          Rzeczoznawca<span class="text-danger fw-bold">Auto</span>
+      <div class="container">
+        <!-- Logo -->
+        <div class="logo d-flex flex-column align-items-center">
+          <img src="./logo.webp" alt="Logo" class="logo-img mb-2" />
+          <span class="fw-bold text-center"
+            >RZECZOZNAWCA<span class="text-danger">AUTO</span></span
+          >
         </div>
-        <div class="header-contact d-none d-md-block text-end">
+        <!-- Przycisk kontakt na telefonach -->
+        <button class="btn btn-sm btn-danger mt-2 d-md-none" id="menu-toggle">
+          Kontakt
+        </button>
+        <!-- Sekcja kontaktowa widoczna na większych ekranach -->
+        <div
+          class="header-contact text-end d-none d-md-flex flex-column align-items-end mt-3"
+        >
           <p><i class="fas fa-user text-danger"></i> Marcin Dudek</p>
           <p><i class="fas fa-phone-alt text-danger"></i> +48 501 237 006</p>
           <p>
@@ -52,6 +60,24 @@
         </div>
       </div>
     </header>
+
+    <!-- Sekcja kontaktowa na telefonach -->
+    <div
+      id="h-cm"
+      class="header-contact-mobile bg-dark text-white p-4 rounded shadow-lg hidden"
+    >
+      <button
+        class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2"
+        id="close-contact"
+      >
+        X
+      </button>
+      <p><i class="fas fa-user text-danger"></i> Marcin Dudek</p>
+      <p><i class="fas fa-phone-alt text-danger"></i> +48 501 237 006</p>
+      <p>
+        <i class="fas fa-envelope text-danger"></i> Dudekmarcin1312@gmail.com
+      </p>
+    </div>
 
     <section id="home" class="hero text-center text-md-start">
       <div class="container">
