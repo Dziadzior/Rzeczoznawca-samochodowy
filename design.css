@@ -799,37 +799,124 @@ body {
   color: #bbb;
 }
 
-/* Nawigacja - hamburger menu */
-@media (max-width: 768px) {
-  .header-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-  }
-
-  .header-nav.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-  }
-}
-
-/* Formularz kontaktowy */
+/* Dostosowanie układu dla ekranów mobilnych */
 @media (max-width: 576px) {
+  /* Poprawa nagłówka */
+  .header {
+    padding: 10px 5%;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .header-contact {
+    align-items: center;
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 30px 5%;
+    background-position: center;
+    height: auto;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.4;
+    white-space: normal; /* Pozwala na zawijanie tekstu */
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Formularz kontaktowy */
+  .hero-form {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 5%;
+  }
+
+  .hero-form input,
+  .hero-form button {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* Statystyki */
+  .hero-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stat h3 {
+    font-size: 2.5rem;
+  }
+
+  .hero-stats p {
+    font-size: 1rem;
+  }
+
+  /* About section */
+  .about {
+    padding: 60px 5%;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 100%;
+  }
+
+  .about-heading {
+    font-size: 1.8rem;
+  }
+
+  /* Sekcja usług */
+  .services {
+    padding: 60px 5%;
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  /* Sekcja kontakt */
+  .contact {
+    padding: 60px 5%;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .contact-map {
+    height: 300px;
+  }
+
   .contact-form {
+    width: 100%;
     padding: 20px;
   }
 
@@ -837,13 +924,52 @@ body {
     font-size: 1.1rem;
     padding: 12px;
   }
-}
 
-/* Stopka */
-@media (max-width: 768px) {
+  /* Stopka */
+  .footer {
+    padding: 40px 5%;
+    text-align: center;
+  }
+
   .footer-container {
     flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-about p,
+  .footer-links ul,
+  .footer-contact ul {
     text-align: center;
+  }
+
+  .footer-social .social-icons {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    font-size: 0.9rem;
+  }
+
+  /* Poprawa efektów animacji */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -870,6 +996,11 @@ body {
 
   .service-card {
     padding: 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
