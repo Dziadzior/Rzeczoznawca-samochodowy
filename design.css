@@ -4,7 +4,6 @@
   --secondary-color: #333;
   --background-color: #f9f9f9;
   --text-color: #fff;
-  --font-size-base: 16px;
 }
 
 * {
@@ -19,8 +18,6 @@ body {
   font-family: "Poppins", sans-serif;
   background: #f9f9f9;
   color: #333;
-  font-size: var(--font-size-base);
-  line-height: 1.6;
 }
 
 .animate-on-scroll {
@@ -34,7 +31,7 @@ body {
   transform: translateY(0);
 }
 
-/* ========== HEADER ========== */
+/* Nagłówek */
 .header {
   position: fixed;
   top: 0;
@@ -43,11 +40,12 @@ body {
   background: rgba(0, 0, 0, 0.95);
   transition: transform 0.4s ease-in-out;
   z-index: 1000;
-  padding: 15px 5%;
 }
-/* Ukrywanie nagłówka przy przewijaniu */
+
+/* Klasa do ukrywania nagłówka przy przewijaniu w dół */
 .header.hidden {
   transform: translateY(-100%);
+  transition: transform 0.4s ease-in-out;
 }
 
 .logo-img {
@@ -107,23 +105,23 @@ body {
   font-size: 1.4rem;
 }
 
-/* ========== HERO SECTION ========== */
+/* Sekcja hero */
 .hero {
   position: relative;
   height: 100vh;
   background: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.8),
+      var(--background-dark),
       var(--primary-color)
     ),
-    url("./logo.webp") no-repeat center center/cover;
+    url("hero-car.jpg") no-repeat center center/cover;
   color: var(--text-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 50px 5%;
+  padding: 50px 0;
   overflow: hidden;
 }
 
@@ -144,12 +142,17 @@ body {
 
 /* Hero Title */
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: 1rem; /* Zmniejszenie rozmiaru czcionki */
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  line-height: 1.2;
+  color: var(--text-color);
+  text-align: center;
+  letter-spacing: 1.7px;
+  line-height: 1.8;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
-  padding: 0 20px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+  white-space: nowrap;
 }
 
 .hero-title .text-danger {
@@ -172,7 +175,7 @@ body {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 30px;
   color: var(--secondary-color);
@@ -181,10 +184,6 @@ body {
 /* Przyciski */
 .hero-buttons {
   margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
 }
 
 .hero-buttons .btn {
@@ -192,6 +191,9 @@ body {
   border-radius: 50px;
   font-size: 1.2rem;
   font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 15px;
   transition: all 0.3s ease-in-out;
   background: var(--primary-color);
   color: var(--text-color);
@@ -201,12 +203,6 @@ body {
 .hero-buttons .btn:hover {
   background: darkred;
   transform: translateY(-5px);
-}
-
-@media (max-width: 768px) {
-  .hero-buttons {
-    flex-direction: column;
-  }
 }
 
 /* Formularz */
@@ -511,18 +507,14 @@ body {
   transform: translateY(-5px);
 }
 
-/* ========== SEKCJA USŁUG ========== */
+/* Sekcja Usługi */
 .services {
   background: #000;
   color: #fff;
-  padding: 80px 5%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  padding: 80px 0;
 }
 
 .service-card {
-  padding: 40px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
@@ -561,7 +553,7 @@ body {
 
 /* Sekcja Contact */
 .contact {
-  padding: 100px 5%;
+  padding: 100px 0;
   background: var(--background-dark);
   color: var(--text-color);
   text-align: center;
@@ -600,12 +592,13 @@ body {
 
 /* Formularz kontaktowy */
 .contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px;
+  flex: 1;
   background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
   border-radius: 15px;
-  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  transition: all 0.3s ease-in-out;
 }
 
 .contact-form:hover {
@@ -628,8 +621,7 @@ body {
 .contact-form textarea {
   width: 100%;
   padding: 15px;
-  font-size: 1rem;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
   border: none;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.1);
@@ -650,21 +642,30 @@ body {
 }
 
 /* Przycisk wysyłania */
-.contact-form .form-btn {
+.contact-btn {
+  width: 100%;
+  padding: 15px;
   background: var(--primary-color);
   color: var(--text-color);
+  font-size: 1.3rem;
+  border-radius: 50px;
+  border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-.contact-form .form-btn:hover {
+.contact-btn:hover {
   background: darkred;
+  transform: translateY(-5px);
 }
+
 /* Sekcja stopki */
 .footer {
   background: var(--background-dark);
   color: var(--text-color);
   padding: 60px 5%;
+  font-size: 1.2rem;
   text-align: center;
 }
 
@@ -675,8 +676,9 @@ body {
   align-items: start;
   gap: 50px;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
+  text-align: left;
 }
 
 /* Nagłówki sekcji */
@@ -795,6 +797,63 @@ body {
   color: #bbb;
 }
 
+/* Nawigacja - hamburger menu */
+@media (max-width: 768px) {
+  .header-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+  }
+
+  .header-nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+}
+
+/* Hero section */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  white-space: normal;
+  padding: 0 20px;
+  line-height: 1.2;
+}
+
+/* Sekcja usług - responsywny układ */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 50px 20px;
+}
+
+/* Formularz kontaktowy */
+@media (max-width: 576px) {
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-btn {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+}
+
+/* Stopka */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -802,41 +861,36 @@ body {
   }
 }
 
-/* ========== MEDIA QUERIES ========== */
-@media (max-width: 1200px) {
-  .hero {
-    padding: 50px 5%;
+/* Ogólne breakpoints */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.2rem;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
+  .about-content {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
+  .hero-buttons {
+    flex-direction: column;
   }
 
-  .services {
-    grid-template-columns: 1fr;
+  .hero-form {
+    width: 100%;
   }
 
-  .contact-form {
+  .service-card {
     padding: 20px;
   }
 }
 
-@media (max-width: 576px) {
-  .hero-title {
-    font-size: 1.8rem;
-  }
-
-  .hero-buttons .btn {
-    padding: 12px 30px;
-  }
-
-  .contact-form {
-    width: 100%;
+/* Obsługa ekranów o wysokiej gęstości pikseli */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi) {
+  .hero {
+    background-image: url("./logo.webp");
   }
 }
