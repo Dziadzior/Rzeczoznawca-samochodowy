@@ -117,7 +117,7 @@ body {
 /* Sekcja kontaktowa na telefonach */
 .header-contact-mobile {
   position: fixed;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 400px;
@@ -821,7 +821,7 @@ body {
 
 @media (max-width: 768px) {
   .header-contact-mobile {
-    top: 24%;
+    top: 10%;
   }
 }
 
