@@ -34,23 +34,19 @@
     />
   </head>
   <body>
+    <!-- HEADER -->
     <header class="header bg-dark text-white py-3 shadow" id="main-header">
-      <div class="container">
-        <!-- Logo -->
-        <div class="logo d-flex flex-column align-items-center">
-          <img src="./logo.webp" alt="Logo" class="logo-img mb-2" />
-          <span class="fw-bold text-center"
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <img src="./logo.webp" alt="Logo" class="logo-img me-2" />
+          <span class="fw-bold"
             >RZECZOZNAWCA<span class="text-danger">AUTO</span></span
           >
         </div>
-        <!-- Przycisk kontakt na telefonach -->
-        <button class="btn btn-sm btn-danger mt-2 d-md-none" id="menu-toggle">
+        <button class="btn btn-sm btn-danger d-md-none" id="menu-toggle">
           Kontakt
         </button>
-        <!-- Sekcja kontaktowa widoczna na większych ekranach -->
-        <div
-          class="header-contact text-end d-none d-md-flex flex-column align-items-end mt-3"
-        >
+        <div class="header-contact d-none d-md-block text-end">
           <p><i class="fas fa-user text-danger"></i> Marcin Dudek</p>
           <p><i class="fas fa-phone-alt text-danger"></i> +48 501 237 006</p>
           <p>
@@ -61,10 +57,9 @@
       </div>
     </header>
 
-    <!-- Sekcja kontaktowa na telefonach -->
     <div
       id="h-cm"
-      class="header-contact-mobile bg-dark text-white p-4 rounded shadow-lg hidden"
+      class="header-contact-mobile bg-dark text-white p-4 rounded shadow-lg d-none"
     >
       <button
         class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2"
@@ -79,123 +74,161 @@
       </p>
     </div>
 
-    <section id="home" class="hero text-center text-md-start">
+    <!-- HERO SECTION -->
+    <section id="home" class="hero text-center text-md-start py-5">
       <div class="container">
-        <h1 class="hero-title">
-          PROFESJONALNE <span class="text-dangerh">EKSPERTYZY</span> DLA TWOJEGO
-          AUTA
-        </h1>
-        <p class="hero-subtitle">
-          Eksperci w dziedzinie rzeczoznawstwa samochodowego – dostępni 24/7.
-        </p>
-        <div class="d-grid gap-3 d-md-flex justify-content-center">
-          <a href="tel:+48123456789" class="btn btn-danger btn-lg"
-            >Zadzwoń Teraz</a
-          >
-          <a href="#contact" class="btn btn-outline-light btn-lg"
-            >Umów Wizytę</a
-          >
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="hero-title">
+              PROFESJONALNE <span class="text-dangerh">EKSPERTYZY</span><br />
+              DLA TWOJEGO <span class="text-dangerh">AUTA</span>
+            </h1>
+            <p class="hero-subtitle">
+              Eksperci w dziedzinie rzeczoznawstwa samochodowego – dostępni
+              24/7.
+            </p>
+            <div
+              class="d-grid gap-3 d-md-flex justify-content-center justify-content-md-start mt-3"
+            >
+              <a href="tel:+48123456789" class="btn btn-danger btn-lg px-4">
+                <i class="fas fa-phone-alt"></i> Zadzwoń Teraz
+              </a>
+              <a href="#contact" class="btn btn-outline-light btn-lg px-4">
+                <i class="fas fa-calendar-alt"></i> Umów Wizytę
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <form class="hero-form mx-auto p-4 shadow-lg rounded">
+              <h4 class="text-center text-danger fw-bold mb-3">
+                Uzyskaj Wyceny
+              </h4>
+              <input
+                type="text"
+                class="form-control mb-3"
+                placeholder="Twoje imię"
+                required
+              />
+              <input
+                type="email"
+                class="form-control mb-3"
+                placeholder="Twój email"
+                required
+              />
+              <button type="submit" class="btn btn-danger w-100">
+                <i class="fas fa-paper-plane"></i> Wyślij
+              </button>
+            </form>
+          </div>
         </div>
-        <form class="hero-form mt-4 mx-auto">
-          <input
-            type="text"
-            class="form-control mb-3"
-            placeholder="Twoje imię"
-            required
-          />
-          <input
-            type="email"
-            class="form-control mb-3"
-            placeholder="Twój email"
-            required
-          />
-          <button type="submit" class="btn btn-danger w-100">
-            Uzyskaj Wyceny
-          </button>
-        </form>
+
         <div
           class="hero-stats d-flex flex-column flex-md-row justify-content-center gap-5 mt-5 text-center"
         >
           <div>
             <h3 class="counter text-danger fw-bold" data-count="5000">0</h3>
-            <p>Zadowolonych Klientów</p>
+            <p class="fw-bold">Zadowolonych Klientów</p>
           </div>
           <div>
             <h3 class="counter text-danger fw-bold" data-count="300">0</h3>
-            <p>Zrealizowanych Ekspertyz</p>
+            <p class="fw-bold">Zrealizowanych Ekspertyz</p>
           </div>
         </div>
       </div>
-      <a href="#services" class="scroll-down"
-        ><i class="fas fa-chevron-down"></i
-      ></a>
     </section>
 
-    <section id="about" class="about">
-      <div class="about-container">
+    <section id="about" class="about py-5 bg-light">
+      <div class="container">
         <!-- Nagłówek sekcji -->
-        <div class="about-header">
-          <h2 class="section-title">Poznaj Naszą <span>Firmę</span></h2>
-          <p class="section-subtitle">
+        <div class="text-center mb-5">
+          <h2 class="section-title fw-bold">
+            Poznaj Naszą <span class="text-danger">Firmę</span>
+          </h2>
+          <p class="section-subtitle text-muted">
             Zapewniamy profesjonalne ekspertyzy i wyceny pojazdów oparte na
             latach doświadczenia i nowoczesnych technologiach.
           </p>
         </div>
 
-        <!-- Część główna sekcji (obraz + tekst) -->
-        <div class="about-content">
-          <div class="about-image">
-            <img src="./logo.webp" alt="O nas" />
+        <!-- Część główna: Obraz + Tekst -->
+        <div class="row align-items-center">
+          <div
+            class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0"
+            data-aos="fade-right"
+          >
+            <img
+              src="./logo.webp"
+              alt="O nas"
+              class="img-fluid rounded shadow-lg"
+            />
           </div>
-
-          <div class="about-text">
-            <h3 class="about-heading">Kim Jesteśmy?</h3>
-            <p>
+          <div class="col-lg-6" data-aos="fade-left">
+            <h3 class="about-heading text-danger fw-bold">Kim Jesteśmy?</h3>
+            <p class="text-muted">
               Jesteśmy zespołem ekspertów, którzy pomagają w podejmowaniu
               świadomych decyzji dotyczących Twojego pojazdu.
             </p>
-            <h3 class="about-heading">Co Oferujemy?</h3>
-            <ul class="about-list">
+            <h3 class="about-heading text-danger fw-bold mt-4">
+              Co Oferujemy?
+            </h3>
+            <ul class="list-unstyled">
               <li>
-                <i class="fas fa-check-circle"></i> Precyzyjne ekspertyzy
-                pojazdów
-              </li>
-              <li><i class="fas fa-check-circle"></i> Rzetelne doradztwo</li>
-              <li>
-                <i class="fas fa-check-circle"></i> Profesjonalne podejście
+                <i class="fas fa-check-circle text-danger"></i> Precyzyjne
+                ekspertyzy pojazdów
               </li>
               <li>
-                <i class="fas fa-check-circle"></i> Indywidualne podejście do
-                każdego klienta
+                <i class="fas fa-check-circle text-danger"></i> Rzetelne
+                doradztwo
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-danger"></i> Profesjonalne
+                podejście
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-danger"></i> Indywidualne
+                podejście do każdego klienta
               </li>
             </ul>
           </div>
         </div>
 
         <!-- Karty wartości firmy -->
-        <div class="about-values">
-          <div class="value-card">
-            <i class="fas fa-shield-alt"></i>
-            <h4>Zaufanie</h4>
-            <p>
-              Transparentność i pełna uczciwość na każdym etapie współpracy.
-            </p>
+        <div class="row mt-5">
+          <div class="col-md-4" data-aos="zoom-in">
+            <div class="card text-center p-4 shadow-lg border-0">
+              <i class="fas fa-shield-alt fa-3x text-danger mb-3"></i>
+              <h4 class="fw-bold">Zaufanie</h4>
+              <p class="text-muted">
+                Transparentność i pełna uczciwość na każdym etapie współpracy.
+              </p>
+            </div>
           </div>
-          <div class="value-card">
-            <i class="fas fa-lightbulb"></i>
-            <h4>Innowacyjność</h4>
-            <p>Wykorzystujemy nowoczesne technologie w każdej ekspertyzie.</p>
+          <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="card text-center p-4 shadow-lg border-0">
+              <i class="fas fa-lightbulb fa-3x text-danger mb-3"></i>
+              <h4 class="fw-bold">Innowacyjność</h4>
+              <p class="text-muted">
+                Wykorzystujemy nowoczesne technologie w każdej ekspertyzie.
+              </p>
+            </div>
           </div>
-          <div class="value-card">
-            <i class="fas fa-handshake"></i>
-            <h4>Profesjonalizm</h4>
-            <p>Gwarantujemy najwyższe standardy w świadczonych usługach.</p>
+          <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+            <div class="card text-center p-4 shadow-lg border-0">
+              <i class="fas fa-handshake fa-3x text-danger mb-3"></i>
+              <h4 class="fw-bold">Profesjonalizm</h4>
+              <p class="text-muted">
+                Gwarantujemy najwyższe standardy w świadczonych usługach.
+              </p>
+            </div>
           </div>
         </div>
 
-        <!-- Call to action -->
-        <div class="about-cta">
-          <a href="#contact" class="btn about-btn">Dowiedz się więcej</a>
+        <!-- Call to Action -->
+        <div class="text-center mt-5">
+          <a href="#contact" class="btn btn-danger btn-lg px-5">
+            <i class="fas fa-info-circle"></i> Dowiedz się więcej
+          </a>
         </div>
       </div>
     </section>
