@@ -819,6 +819,22 @@ body {
   color: #bbb;
 }
 
+/* ======== RESPONSYWNOŚĆ ======== */
+
+/* Dostosowanie dla tabletów */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
 @media (max-width: 768px) {
   .header-contact-mobile {
     top: 20%;
@@ -857,5 +873,32 @@ body {
 
   .header-contact-mobile {
     top: 30%;
+  }
+
+  .hero {
+    padding: 10vh 5%;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons .btn {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+
+  .hero-form {
+    width: 100%;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 20px;
   }
 }
