@@ -867,12 +867,6 @@ body {
 
 /* Ukrycie sekcji kontaktowej na telefonach */
 @media (max-width: 576px) {
-  .header .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .logo {
     text-align: center;
     display: flex;
