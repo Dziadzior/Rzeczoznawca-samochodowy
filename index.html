@@ -37,43 +37,60 @@
     <!-- HEADER -->
     <header class="header bg-dark text-white py-3 shadow" id="main-header">
       <div class="container d-flex align-items-center justify-content-between">
+        <!-- Logo -->
         <div class="d-flex align-items-center">
-          <img src="./logo.webp" alt="Logo" class="logo-img me-2" />
-          <span class="fw-bold"
-            >RZECZOZNAWCA<span class="text-danger">AUTO</span></span
-          >
+          <span id="logo-title" class="fw-bold fs-4">
+            RZECZOZNAWCA<span class="text-danger">AUTO</span>
+          </span>
         </div>
-        <button class="btn btn-sm btn-danger d-md-none" id="menu-toggle">
+
+        <!-- Sekcja kontaktowa dla desktopów -->
+        <nav class="header-contact d-none d-md-flex align-items-center gap-3">
+          <div class="d-flex align-items-center gap-2">
+            <i class="fas fa-user text-danger"></i>
+            <span class="text-light">Marcin Dudek</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="fas fa-phone-alt text-danger"></i>
+            <a href="tel:+48501237006" class="text-light text-decoration-none">
+              +48 501 237 006
+            </a>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="fas fa-envelope text-danger"></i>
+            <a
+              href="mailto:Dudekmarcin1312@gmail.com"
+              class="text-light text-decoration-none"
+            >
+              Dudekmarcin1312@gmail.com
+            </a>
+          </div>
+        </nav>
+
+        <!-- Przycisk kontaktowy dla mobilnych -->
+        <button class="btn btn-danger btn-sm d-md-none" id="menu-toggle">
           Kontakt
         </button>
-        <div class="header-contact d-none d-md-block text-end">
-          <p><i class="fas fa-user text-danger"></i> Marcin Dudek</p>
-          <p><i class="fas fa-phone-alt text-danger"></i> +48 501 237 006</p>
-          <p>
-            <i class="fas fa-envelope text-danger"></i>
-            Dudekmarcin1312@gmail.com
-          </p>
-        </div>
+        <button
+          class="btn btn-danger btn-sm d-md-none hidden"
+          id="close-contact"
+        >
+          X
+        </button>
+      </div>
+
+      <!-- Sekcja kontaktowa dla mobilnych -->
+      <div
+        id="h-cm"
+        class="header-contact-mobile bg-dark text-white p-4 rounded shadow-lg"
+      >
+        <p><i class="fas fa-user text-danger"></i> Marcin Dudek</p>
+        <p><i class="fas fa-phone-alt text-danger"></i> +48 501 237 006</p>
+        <p>
+          <i class="fas fa-envelope text-danger"></i> Dudekmarcin1312@gmail.com
+        </p>
       </div>
     </header>
-
-    <div
-      id="h-cm"
-      class="header-contact-mobile bg-dark text-white p-4 rounded shadow-lg d-none"
-    >
-      <button
-        class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2"
-        id="close-contact"
-      >
-        X
-      </button>
-      <p><i class="fas fa-user text-danger"></i> Marcin Dudek</p>
-      <p><i class="fas fa-phone-alt text-danger"></i> +48 501 237 006</p>
-      <p>
-        <i class="fas fa-envelope text-danger"></i> Dudekmarcin1312@gmail.com
-      </p>
-    </div>
-
     <!-- HERO SECTION -->
     <section id="home" class="hero text-center text-md-start py-5">
       <div class="container">

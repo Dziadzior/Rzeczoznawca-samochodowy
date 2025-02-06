@@ -1,9 +1,13 @@
 :root {
-  --primary-color: red;
-  --lighter-red: rgb(255, 77, 77);
-  --secondary-color: #333;
-  --background-color: #f9f9f9;
-  --text-color: #fff;
+  /* Rozszerzona paleta kolorów */
+  --primary-color: #ff0000;
+  --primary-dark: #cc0000;
+  --primary-light: #ff3333;
+  --dark-bg: rgba(0, 0, 0, 0.97);
+  --dark-bg-transparent: rgba(0, 0, 0, 0.95);
+  --light-text: #ffffff;
+  --gray-text: #bbbbbb;
+  --border-light: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -36,28 +40,398 @@ body {
 
 /* Nagłówek */
 .header {
-  position: fixed;
+  position: relative; /* Dodane – umożliwia absolutne pozycjonowanie elementów wewnątrz headera */
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--dark-bg-transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+.header.scrolled {
+  background: var(--dark-bg);
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.15);
+}
+
+.header.header-hidden {
+  transform: translateY(-100%);
+}
+
+.header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  padding: 0.5rem 2rem;
+  transition: all 0.4s ease;
+}
+
+.header.scrolled .header-main {
+  height: 70px;
+}
+
+.header-scrolled .header-main {
+  height: 65px;
+}
+
+/* Logo section */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.logo-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.logo-section:hover::after {
+  width: 100%;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Domyślne ustawienie logo – wyrównane do lewej */
+.logo-title {
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+/* Po otwarciu mobilnego menu (dodanie klasy "center" przez JS) */
+.logo-title.center {
+  text-align: center;
+  width: 100%; /* Zapewnia pełną szerokość, aby tekst faktycznie się wyśrodkował */
+}
+
+.logo-section:hover .logo-img {
+  transform: scale(1.1);
+}
+
+.logo-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.logo-section:hover .logo-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.logo-section:hover {
+  transform: translateY(-2px);
+}
+
+.logo-section:hover .logo-text .text-danger {
+  color: #fff !important;
+}
+
+/* Desktop contact */
+.header-contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-contact .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.contact-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: 1px solid transparent;
+  overflow: hidden;
+}
+
+.contact-item::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 1000;
-  padding: 15px 5%;
+  height: 100%;
+  background: var(--primary-color);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  z-index: -1;
 }
 
-.header .container {
+.contact-item:hover::before {
+  transform: translateY(0);
+  opacity: 0.1;
+}
+
+.header-contact .contact-item i {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.header-contact .contact-item:hover {
+  color: var(--primary-color);
+}
+
+.contact-item:hover i {
+  transform: scale(1.2);
+  color: var(--primary-light);
+}
+
+.contact-item span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--light-text);
+}
+
+/* Układ mobilnego menu kontaktowego */
+.header-contact-mobile {
+  position: relative; /* Nie używamy absolute, aby nie wychodziło poza header */
+  width: 100%;
+  background: var(--dark-bg);
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  display: none;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+.header-contact-mobile.active {
+  display: block;
+}
+
+/* Ustawienie pozycji kontaktów */
+.header-contact-mobile p {
+  margin: 10px 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+}
+
+.header-contact-mobile.active p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-contact .contact-item {
+  width: 100%;
+  padding: 15px;
+  justify-content: flex-start; /* Ustawienie elementów jeden pod drugim */
+  border-bottom: 1px solid var(--border-light);
+  margin: 0;
+}
+
+.mobile-contact .contact-item:last-child {
+  border-bottom: none;
+}
+
+/* Zmiana pozycji logo po otwarciu menu */
+#logo-title {
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+#logo-title.center {
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+/* Przycisk kontakt */
+#menu-toggle {
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#menu-toggle.active {
+  background: var(--primary-dark);
+}
+
+#menu-toggle.hidden {
+  display: none;
+}
+
+#close-contact.hidden {
+  display: none;
+}
+
+.hamburger {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.hidden {
-  transform: translateY(-100%);
-  transition: transform 0.3s ease-in-out;
-  visibility: hidden;
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--light-text);
+  transition: all 0.3s ease;
+  margin: 2px 0;
+}
+
+.menu-toggle.active .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .hamburger span:nth-child(2) {
   opacity: 0;
 }
 
+.menu-toggle.active .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu-toggle.active {
+  background: var(--primary-color);
+}
+
+.menu-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Ukrywanie i pokazywanie przycisków */
+.hidden {
+  display: none !important;
+}
+
+/* Media queries */
+@media (min-width: 768px) {
+  .header {
+    padding: 15px 50px; /* Większy padding na desktopie */
+  }
+
+  .header-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #logo-title {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Sekcja kontaktowa mobilna pojawia się pod logo */
+  .header-contact-mobile {
+    width: 100%;
+    display: none;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .header-contact-mobile.active {
+    display: block;
+  }
+
+  /* Ukrywanie przycisku kontakt i pokazanie X */
+  #menu-toggle.hidden {
+    display: none;
+  }
+
+  #close-contact.hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-main {
+    height: 60px;
+  }
+
+  .header-contact {
+    display: none;
+  }
+
+  .logo-text {
+    font-size: 1.4rem;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-contact .contact-item {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-contact {
+    gap: 15px; /* Zmniejszamy odstępy przy mniejszych ekranach */
+  }
+
+  .header-contact .contact-item {
+    padding: 8px 12px; /* Zmniejszamy padding */
+  }
+
+  .contact-item span {
+    font-size: 0.9rem; /* Mniejsza czcionka */
+  }
+}
 .visible {
   transform: translateY(0);
   transition: transform 0.3s ease-in-out;
@@ -70,10 +444,6 @@ body {
   transition: transform 0.3s ease-in-out;
   visibility: hidden;
   opacity: 0;
-}
-
-.logo-img {
-  width: 50px;
 }
 
 .logo {
@@ -93,50 +463,25 @@ body {
   color: #ff4d4d;
   letter-spacing: 2px;
 }
-
-/* Sekcja kontaktowa */
-.header-contact {
-  font-size: 1rem;
-  color: #ccc;
-}
-
 .header-contact p {
-  margin-bottom: 5px;
+  margin: 0;
+  padding: 5px 0;
 }
 
-/* Przycisk kontakt na telefonach */
-#menu-toggle {
-  font-size: 1rem;
-  padding: 10px 20px;
-  border-radius: 5px;
-  display: block;
-  text-align: center;
-  margin-top: 10px;
+@media (min-width: 768px) {
+  .header-contact {
+    display: block;
+  }
+
+  .header-contact p {
+    display: inline-block;
+    margin-left: 20px;
+  }
 }
 
-/* Sekcja kontaktowa na telefonach */
-.header-contact-mobile {
-  position: fixed;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 20px;
-  border-radius: 10px;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease-in-out;
-}
-
-/* Widoczność sekcji kontaktowej */
-.header-contact-mobile.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%);
-  z-index: 99;
+.mobile-contact .contact-item i {
+  margin-right: 10px;
+  color: var(--primary-color);
 }
 
 /* ======== HERO SECTION ======== */
@@ -153,7 +498,7 @@ body {
       rgba(0, 0, 0, 0.7),
       rgba(255, 0, 0, 0.5)
     ),
-    url("./hero-car.jpg") no-repeat center center/cover;
+    #333; /* Tymczasowy kolor tła zamiast obrazu */
   color: var(--text-color);
   padding: 10vh 5%;
   overflow: hidden;
@@ -553,6 +898,17 @@ body {
   transform: translateY(-5px);
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Sekcja Usługi */
 .services {
   background: #000;
@@ -860,63 +1216,115 @@ body {
 }
 
 @media (max-width: 768px) {
+  .header-contact {
+    display: none;
+  }
+
+  .mobile-contact .contact-item {
+    margin: 5px 0;
+  }
+
   .header-contact-mobile {
     top: 20%;
   }
-}
 
-/* Ukrycie sekcji kontaktowej na telefonach */
-@media (max-width: 576px) {
-  .logo {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .header-main {
+    min-height: 50px;
   }
 
   .logo-img {
-    width: 50px;
-    margin-bottom: 8px;
+    width: 35px;
+    height: 35px;
   }
 
-  /* Przycisk kontakt na telefonach */
-  #menu-toggle {
-    font-size: 1rem;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: block;
-    text-align: center;
-    margin-top: 10px;
+  /* Ukrycie sekcji kontaktowej na telefonach */
+  @media (max-width: 576px) {
+    .header-contact {
+      display: none;
+    }
+
+    .logo {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-img {
+      width: 50px;
+      margin-bottom: 8px;
+    }
+
+    /* Przycisk kontakt na telefonach */
+    #menu-toggle {
+      display: block;
+    }
+
+    .header-contact-mobile {
+      top: 30%;
+    }
+
+    .hero {
+      padding: 12vh 5%;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .hero-buttons .btn {
+      font-size: 1rem;
+      padding: 12px 30px;
+    }
+
+    .hero-form {
+      width: 100%;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      gap: 25px;
+    }
   }
 
-  .header-contact-mobile {
-    top: 30%;
+  .d-none {
+    display: none !important;
+  }
+}
+
+/* Media queries */
+@media (max-width: 1200px) {
+  .header-contact {
+    gap: 15px; /* Zmniejszamy odstępy przy mniejszych ekranach */
   }
 
-  .hero {
-    padding: 12vh 5%;
+  .header-contact a.contact-item {
+    /* Zastosuj styl tylko do linków */
+    padding: 8px 12px; /* Zmniejszamy padding */
   }
 
-  .hero-title {
-    font-size: 2.2rem;
-    letter-spacing: 1px;
+  .contact-item span {
+    font-size: 0.9rem; /* Mniejsza czcionka */
   }
+}
 
-  .hero-subtitle {
-    font-size: 1.1rem;
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
   }
-
-  .hero-buttons .btn {
-    font-size: 1rem;
-    padding: 12px 30px;
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
   }
-
-  .hero-form {
-    width: 100%;
-  }
-
-  .hero-stats {
-    flex-direction: column;
-    gap: 25px;
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
   }
 }
