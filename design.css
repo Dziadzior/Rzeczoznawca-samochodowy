@@ -811,7 +811,7 @@ body {
 .about-text p {
   font-size: 1.3rem;
   line-height: 1.8;
-  color: #ddd;
+  color: var(--light-text) !important;
 }
 
 /* Lista korzyści */
@@ -843,8 +843,8 @@ body {
   max-width: 1000px;
 }
 
-.value-card {
-  background: rgba(255, 255, 255, 0.05);
+.card {
+  background: var(--dark-bg) !important;
   padding: 40px;
   border-radius: 10px;
   max-width: 320px;
@@ -853,25 +853,25 @@ body {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.value-card:hover {
+.card:hover {
   transform: translateY(-10px);
   box-shadow: 0px 15px 25px rgba(255, 0, 0, 0.3);
   color: var(--lighter-red);
 }
 
-.value-card svg {
+.card svg {
   font-size: 3rem;
   color: var(--primary-color);
   margin-bottom: 15px;
 }
 
-.value-card h4 {
+.card h4 {
   font-size: 1.8rem;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-.value-card p {
+.card p {
   font-size: 1.2rem;
   color: #bbb;
 }
