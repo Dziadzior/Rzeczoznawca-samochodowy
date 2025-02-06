@@ -736,8 +736,8 @@ body {
 /* Sekcja About */
 .about {
   padding: 100px 20px;
-  background: var(--background-dark);
-  color: var(--text-color);
+  background: var(--dark-bg);
+  color: var(--light-text);
   text-align: center;
 }
 
@@ -911,8 +911,8 @@ body {
 
 /* Sekcja Usługi */
 .services {
-  background: #000;
-  color: #fff;
+  background: var(--dark-bg);
+  color: var(--light-text);
   padding: 80px 0;
 }
 
@@ -956,8 +956,8 @@ body {
 /* Sekcja Contact */
 .contact {
   padding: 100px 0;
-  background: var(--background-dark);
-  color: var(--text-color);
+  background: var(--dark-bg);
+  color: var(--light-text);
   text-align: center;
 }
 
@@ -1064,8 +1064,8 @@ body {
 
 /* Sekcja stopki */
 .footer {
-  background: var(--background-dark);
-  color: var(--text-color);
+  background: var(--dark-bg);
+  color: var(--light-text);
   padding: 60px 5%;
   font-size: 1.2rem;
   text-align: center;
@@ -1235,6 +1235,13 @@ body {
   .logo-img {
     width: 35px;
     height: 35px;
+  }
+
+  .about,
+  .contact,
+  .footer {
+    background-color: var(--dark-bg) !important;
+    color: var(--light-text) !important;
   }
 
   /* Ukrycie sekcji kontaktowej na telefonach */

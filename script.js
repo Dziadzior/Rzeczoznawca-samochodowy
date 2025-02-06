@@ -94,25 +94,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Sprawdzamy, czy sekcja About istnieje przed przypisaniem eventu
   const aboutSection = document.querySelector(".about");
   const aboutContent = document.querySelector(".about-content");
   const aboutItems = document.querySelectorAll(".about-list li");
 
-  function revealAbout() {
-    const sectionPos = aboutSection.getBoundingClientRect().top;
-    const screenPos = window.innerHeight / 1.3;
+  if (aboutSection && aboutContent) {
+    function revealAbout() {
+      const sectionPos = aboutSection.getBoundingClientRect().top;
+      const screenPos = window.innerHeight / 1.3;
 
-    if (sectionPos < screenPos) {
-      aboutContent.classList.add("fade-in");
-      aboutItems.forEach((item, index) => {
-        setTimeout(() => {
-          item.classList.add("fade-in");
-        }, index * 150);
-      });
+      if (sectionPos < screenPos) {
+        aboutContent.classList.add("fade-in");
+        aboutItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add("fade-in");
+          }, index * 150);
+        });
+
+        // Usuwamy event po aktywacji animacji, aby nie powtarzać
+        window.removeEventListener("scroll", revealAbout);
+      }
     }
-  }
 
-  window.addEventListener("scroll", revealAbout);
+    window.addEventListener("scroll", revealAbout);
+  }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
