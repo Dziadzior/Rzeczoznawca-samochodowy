@@ -807,6 +807,10 @@ body {
   border-left: 5px solid var(--primary-color);
   padding-left: 15px;
 }
+.about .section-subtitle,
+.about-heading .text-muted {
+  color: var(--light-text) !important;
+}
 
 .about-text p {
   font-size: 1.3rem;
@@ -844,7 +848,7 @@ body {
 }
 
 .card {
-  background: var(--dark-bg) !important;
+  background-color: #111 !important;
   padding: 40px;
   border-radius: 10px;
   max-width: 320px;
