@@ -632,31 +632,6 @@ body {
   border-radius: 5px;
 }
 
-/* Statystyki */
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 50px;
-  flex-wrap: wrap;
-}
-
-.hero-stats div {
-  text-align: center;
-}
-
-.hero-stats h3 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--primary-color);
-}
-
-.hero-stats p {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #aaa;
-}
-
 .counter {
   font-size: 3rem;
   font-weight: bold;
@@ -807,9 +782,8 @@ body {
   border-left: 5px solid var(--primary-color);
   padding-left: 15px;
 }
-.about .section-subtitle,
-.about-heading .text-muted {
-  color: var(--light-text) !important;
+.text-muted {
+  color: #bbb !important;
 }
 
 .about-text p {

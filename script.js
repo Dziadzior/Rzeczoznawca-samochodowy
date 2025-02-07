@@ -68,18 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Sprawdzanie, czy użytkownik przewinął do sekcji Hero
-  function handleScroll() {
-    const sectionHero = document.querySelector(".hero-stats");
-    const sectionPos = sectionHero.getBoundingClientRect().top;
-    const screenPos = window.innerHeight / 1.2;
-
-    if (sectionPos < screenPos && !counterStarted) {
-      startCounter();
-      counterStarted = true;
-    }
-  }
-
   window.addEventListener("scroll", handleScroll);
 
   // Efekt przycisków najechania w Hero
