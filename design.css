@@ -524,7 +524,7 @@ body {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--text-color);
+  color: #fff !important;
   letter-spacing: 1.5px;
   line-height: 1.4;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
@@ -847,7 +847,7 @@ body {
   font-size: 1.8rem;
   margin-bottom: 10px;
   font-weight: bold;
-  color: #fff;
+  color: #fff !important;
 }
 
 .card p {
