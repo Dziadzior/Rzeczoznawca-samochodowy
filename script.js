@@ -148,3 +148,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", highlightActiveSection);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("hero-form");
+  const fileInput = document.getElementById("attachments");
+  const fileList = document.getElementById("file-list");
+
+  // Wyświetlanie listy wybranych plików
+  fileInput.addEventListener("change", () => {
+    fileList.innerHTML = "";
+    for (let file of fileInput.files) {
+      const fileItem = document.createElement("p");
+      fileItem.textContent = file.name;
+      fileList.appendChild(fileItem);
+    }
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    // Pobranie plików
+    const files = fileInput.files;
+    for (let i = 0; i < files.length; i++) {
+      formData.append("attachments[]", files[i]);
+    }
+
+    // Wysyłka AJAX do backendu
+    try {
+      const response = await fetch("send_email.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.text();
+      alert(result);
+      form.reset();
+      fileList.innerHTML = "";
+    } catch (error) {
+      alert("Błąd wysyłania formularza. Spróbuj ponownie.");
+    }
+  });
+});

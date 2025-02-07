@@ -587,40 +587,73 @@ body {
   transform: translateY(-5px);
 }
 
-/* Hero Form */
+/* Hero Form - nowoczesny wygląd */
 .hero-form {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  max-width: 400px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+  max-width: 500px;
+  transition: all 0.3s ease-in-out;
 }
 
-.hero-form input {
+.hero-form:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
+}
+
+/* Styl pól formularza */
+.hero-form input,
+.hero-form textarea,
+.hero-form input[type="file"] {
   background: rgba(255, 255, 255, 0.1);
   border: none;
   padding: 12px;
   font-size: 1rem;
   color: #fff;
   border-radius: 5px;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
+.hero-form input::placeholder,
+.hero-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-form input:focus,
+.hero-form textarea:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Styl pola do załączników */
+.hero-form input[type="file"] {
+  cursor: pointer;
+  padding: 10px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hero-form input[type="file"]:hover {
+  border-color: var(--primary-light);
+}
+
+/* Przycisk Wyślij */
 .hero-form button {
   background: var(--primary-color);
   color: #fff;
   padding: 12px;
   font-size: 1.2rem;
   border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
 }
 
-.hero-form .form-btn {
-  background: var(--primary-color);
-  color: var(--text-color);
-  cursor: pointer;
-}
-
-.hero-form .form-btn:hover {
+.hero-form button:hover {
   background: darkred;
+  transform: translateY(-3px);
 }
 
 .form-control {
