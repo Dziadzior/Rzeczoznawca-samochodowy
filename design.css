@@ -921,6 +921,144 @@ body {
   transform: translateY(0);
 }
 
+/* Sekcja Certyfikatów */
+.certificates {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  text-align: center;
+}
+
+.certificates .section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.certificates-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Poprawione wyświetlanie certyfikatów */
+.certificate-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 150px;
+  margin: 5px;
+}
+
+.certificate-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efekt hover */
+.certificate-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(255, 0, 0, 0.3);
+}
+
+/* MODAL - Powiększanie certyfikatów */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.modal-content {
+  max-width: 60%;
+  max-height: 70%;
+  border-radius: 10px;
+}
+
+/* Przyciski do nawigacji w modalu */
+.modal-prev,
+.modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: white;
+  border-radius: 50%;
+}
+
+.modal-prev {
+  left: 5%;
+}
+
+.modal-next {
+  right: 5%;
+}
+
+.modal-prev:hover,
+.modal-next:hover {
+  background: rgba(255, 0, 0, 0.6);
+}
+
+/* Zamknięcie modalu */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+  .certificates-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .certificate-item {
+    width: 180px;
+    height: 120px;
+  }
+
+  .modal-content {
+    max-width: 80%;
+    max-height: 60%;
+  }
+
+  .modal-prev,
+  .modal-next {
+    font-size: 20px;
+  }
+}
+
 /* Sekcja Usługi */
 .services {
   background: var(--dark-bg);
