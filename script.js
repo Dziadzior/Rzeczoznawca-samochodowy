@@ -45,39 +45,26 @@ document.addEventListener("DOMContentLoaded", () => {
     once: true,
   });
 
-  // Pobranie liczników
-  const counters = document.querySelectorAll(".counter");
-  let counterStarted = false;
-
-  function startCounter() {
-    counters.forEach((counter) => {
-      const updateCount = () => {
-        const target = +counter.getAttribute("data-count");
-        const count = +counter.innerText;
-
-        const increment = target / 100;
-
-        if (count < target) {
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(updateCount, 15);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      updateCount();
-    });
+  function handleScroll() {
+    const header = document.getElementById("main-header");
+    if (window.scrollY > 50) {
+      header.classList.add("header-scrolled");
+    } else {
+      header.classList.remove("header-scrolled");
+    }
   }
 
-  window.addEventListener("scroll", handleScroll);
+  // Nasłuchiwanie scrollowania
+  document.addEventListener("scroll", handleScroll);
+});
 
-  // Efekt przycisków najechania w Hero
-  document.querySelectorAll(".hero-buttons .btn").forEach((btn) => {
-    btn.addEventListener("mouseover", () => {
-      btn.style.transform = "scale(1.05)";
-    });
-    btn.addEventListener("mouseleave", () => {
-      btn.style.transform = "scale(1)";
-    });
+// Efekt przycisków najechania w Hero
+document.querySelectorAll(".hero-buttons .btn").forEach((btn) => {
+  btn.addEventListener("mouseover", () => {
+    btn.style.transform = "scale(1.05)";
+  });
+  btn.addEventListener("mouseleave", () => {
+    btn.style.transform = "scale(1)";
   });
 });
 
@@ -107,6 +94,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("scroll", revealAbout);
   }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const certificatesData = [
+    { src: "certyfikaty/uprawnienie.jpg" },
+    { src: "certyfikaty/cert1.jpg" },
+    { src: "certyfikaty/cert2.jpg" },
+    { src: "certyfikaty/cert3.jpg" },
+    { src: "certyfikaty/cert4.jpg" },
+    { src: "certyfikaty/cert5.jpg" },
+    { src: "certyfikaty/cert6.jpg" },
+    { src: "certyfikaty/cert7.jpg" },
+    { src: "certyfikaty/cert8.jpg" },
+  ];
+
+  const grid = document.querySelector(".certificates-grid");
+  let currentIndex = 0;
+
+  function renderCertificates() {
+    grid.innerHTML = "";
+    certificatesData.forEach((cert, index) => {
+      const item = document.createElement("div");
+      item.classList.add("certificate-item");
+      item.innerHTML = `<img src="${cert.src}" alt="Certyfikat" loading="lazy">`;
+      item.addEventListener("click", () => openModal(index));
+      grid.appendChild(item);
+    });
+  }
+
+  renderCertificates();
+
+  function openModal(index) {
+    currentIndex = index;
+    const modal = document.getElementById("certificate-modal");
+    document.getElementById("modal-img").src =
+      certificatesData[currentIndex].src;
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("certificate-modal").style.display = "none";
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % certificatesData.length;
+    document.getElementById("modal-img").src =
+      certificatesData[currentIndex].src;
+  }
+
+  function prevImage() {
+    currentIndex =
+      (currentIndex - 1 + certificatesData.length) % certificatesData.length;
+    document.getElementById("modal-img").src =
+      certificatesData[currentIndex].src;
+  }
+
+  document.querySelector(".close").addEventListener("click", closeModal);
+  document.querySelector(".modal-next").addEventListener("click", nextImage);
+  document.querySelector(".modal-prev").addEventListener("click", prevImage);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -151,31 +196,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("hero-form");
-  const fileInput = document.getElementById("attachments");
-  const fileList = document.getElementById("file-list");
-
-  // Wyświetlanie listy wybranych plików
-  fileInput.addEventListener("change", () => {
-    fileList.innerHTML = "";
-    for (let file of fileInput.files) {
-      const fileItem = document.createElement("p");
-      fileItem.textContent = file.name;
-      fileList.appendChild(fileItem);
-    }
-  });
 
   form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Zapobiega przeładowaniu strony
 
     const formData = new FormData(form);
 
-    // Pobranie plików
-    const files = fileInput.files;
-    for (let i = 0; i < files.length; i++) {
-      formData.append("attachments[]", files[i]);
-    }
-
-    // Wysyłka AJAX do backendu
     try {
       const response = await fetch("send_email.php", {
         method: "POST",
@@ -183,9 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const result = await response.text();
-      alert(result);
-      form.reset();
-      fileList.innerHTML = "";
+      alert(result); // Powiadomienie użytkownika o wyniku
     } catch (error) {
       alert("Błąd wysyłania formularza. Spróbuj ponownie.");
     }

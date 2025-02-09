@@ -118,7 +118,7 @@
             <div
               class="d-grid gap-3 d-md-flex justify-content-center justify-content-md-start mt-3"
             >
-              <a href="tel:+48123456789" class="btn btn-danger btn-lg px-4">
+              <a href="tel:+48501237006" class="btn btn-danger btn-lg px-4">
                 <i class="fas fa-phone-alt"></i> Zadzwoń Teraz
               </a>
               <a href="#contact" class="btn btn-outline-light btn-lg px-4">
@@ -158,7 +158,7 @@
                 required
               ></textarea>
 
-              <!-- Nowe pole do wyboru plików -->
+              <!-- Pole do załączników -->
               <label class="form-label text-white"
                 >Dodaj załączniki (możesz wybrać wiele plików)</label
               >
@@ -270,6 +270,31 @@
             <i class="fas fa-info-circle"></i> Dowiedz się więcej
           </a>
         </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="certificates py-5">
+      <div class="container">
+        <h2 class="section-title text-center">
+          Moje <span class="text-danger">Certyfikaty</span>
+        </h2>
+        <p class="section-subtitle text-center">
+          Sprawdź moje osiągnięcia i certyfikaty.
+        </p>
+
+        <!-- Galeria certyfikatów -->
+        <div class="certificates-grid">
+          <!-- Certyfikaty będą ładowane dynamicznie przez JS -->
+        </div>
+      </div>
+
+      <!-- Modal dla powiększania certyfikatów -->
+      <div id="certificate-modal" class="modal">
+        <span class="close">&times;</span>
+        <button class="modal-prev">&lt;</button>
+        <img class="modal-content" id="modal-img" />
+        <button class="modal-next">&gt;</button>
+        <div id="caption"></div>
       </div>
     </section>
 

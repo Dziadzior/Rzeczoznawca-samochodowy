@@ -1,32 +1,77 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "patrykroszkowski2020@gmail.com";
-    $subject = "Nowe zapytanie z formularza Hero";
-    $message = "Imię: " . $_POST["name"] . "\nEmail: " . $_POST["email"] . "\n\nWiadomość:\n" . $_POST["message"];
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    $boundary = md5(time());
-    $headers = "From: " . $_POST["email"] . "\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+require __DIR__ . '/vendor/autoload.php';
 
-    $emailBody = "--$boundary\r\n";
-    $emailBody .= "Content-Type: text/plain; charset=UTF-8\r\n\r\n";
-    $emailBody .= $message . "\r\n";
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    die("Błąd: Formularz musi być wysłany metodą POST.");
+}
 
+if (!isset($_POST["name"], $_POST["email"], $_POST["message"])) {
+    die("Błąd: Brak wymaganych danych.");
+}
+
+$mail = new PHPMailer(true);
+
+try {
+    // Konfiguracja SMTP Gmail
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'patrykroszkowski2020@gmail.com';
+    $mail->Password = 'vbuk isqt jwfx wdmz';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
+
+    // Dane nadawcy i odbiorcy
+    $mail->setFrom($_POST['email'], $_POST['name']);
+    $mail->addAddress('patrykroszkowski2020@gmail.com', 'Odbiorca');
+
+    // Temat e-maila
+    $mail->Subject = "Nowa wycena";
+
+    // Stylizowana wiadomość e-mail
+    $message = "
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+            .email-container { max-width: 600px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+            h2 { color: #c00; }
+            p { font-size: 16px; color: #333; }
+            .email-footer { margin-top: 20px; font-size: 12px; color: #777; }
+        </style>
+    </head>
+    <body>
+        <div class='email-container'>
+            <h2>Nowa wycena</h2>
+            <p><strong>Imię:</strong> {$_POST['name']}</p>
+            <p><strong>Email:</strong> {$_POST['email']}</p>
+            <p><strong>Wiadomość:</strong></p>
+            <p>{$_POST['message']}</p>
+            <hr>
+        </div>
+    </body>
+    </html>";
+
+    // Ustawienie wiadomości jako HTML
+    $mail->isHTML(true);
+    $mail->Body = $message;
+
+    // Obsługa załączników
     if (!empty($_FILES["attachments"]["name"][0])) {
         for ($i = 0; $i < count($_FILES["attachments"]["name"]); $i++) {
-            $fileName = $_FILES["attachments"]["name"][$i];
-            $fileContent = chunk_split(base64_encode(file_get_contents($_FILES["attachments"]["tmp_name"][$i])));
-            $emailBody .= "--$boundary\r\n";
-            $emailBody .= "Content-Type: application/octet-stream; name=\"$fileName\"\r\n";
-            $emailBody .= "Content-Disposition: attachment; filename=\"$fileName\"\r\n";
-            $emailBody .= "Content-Transfer-Encoding: base64\r\n\r\n";
-            $emailBody .= $fileContent . "\r\n";
+            $mail->addAttachment($_FILES["attachments"]["tmp_name"][$i], $_FILES["attachments"]["name"][$i]);
         }
     }
 
-    $emailBody .= "--$boundary--";
-
-    echo mail($to, $subject, $emailBody, $headers) ? "Formularz wysłany!" : "Błąd wysyłki.";
+    if ($mail->send()) {
+        echo "Formularz wysłany pomyślnie!";
+    } else {
+        echo "Błąd wysyłania formularza: " . $mail->ErrorInfo;
+    }
+} catch (Exception $e) {
+    echo "Błąd: " . $mail->ErrorInfo;
 }
 ?>
