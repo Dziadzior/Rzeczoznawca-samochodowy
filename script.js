@@ -97,15 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 document.addEventListener("DOMContentLoaded", () => {
   const certificatesData = [
-    { src: "uprawnienie.jpg" },
-    { src: "cert1.jpg" },
-    { src: "cert2.jpg" },
-    { src: "cert3.jpg" },
-    { src: "cert4.jpg" },
-    { src: "cert5.jpg" },
-    { src: "cert6.jpg" },
-    { src: "cert7.jpg" },
-    { src: "cert8.jpg" },
+    { src: "./uprawnienie.jpg" },
+    { src: "./cert1.jpg" },
+    { src: "./cert2.jpg" },
+    { src: "./cert3.jpg" },
+    { src: "./cert4.jpg" },
+    { src: "./cert5.jpg" },
+    { src: "./cert6.jpg" },
+    { src: "./cert7.jpg" },
+    { src: "./cert8.jpg" },
   ];
 
   const grid = document.querySelector(".certificates-grid");
